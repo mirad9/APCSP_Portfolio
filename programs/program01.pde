@@ -40,6 +40,5 @@ void sheep(){
   ellipse(90,100,10,10);
   fill(0);
   ellipse(87,100,3,3);
-  fill(#6F0103);
-  ellipse(54,115,10,5);
+
 }
