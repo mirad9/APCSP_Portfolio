@@ -1,36 +1,46 @@
-size(720, 480);
-smooth();
-strokeWeight(2);
-ellipseMode(RADIUS);
+boolean cat=false;
+boolean dog=false;
+boolean bunny=false;
+boolean chose=false;
+int catheadX=600;
+int catbodyX=600;
+int catheadY=350;
+int catbodyY=470;
 
-//Neck
-stroke(102);              // Set stroke to gray
-line(266, 257, 266, 162); // Left
-line(276, 257, 276, 162); // Middle
-line(286, 257, 286, 162); // Right
-
-// Antennae
-line(276, 155, 246, 112); // Small
-line(276, 155, 306, 56);  // Tall
-line(276, 155, 342, 170); // Medium
-
-// Body
-noStroke();               // Disable stroke  
-fill(102);                // Set to gray
-ellipse(264, 377, 33, 33);// Antigravity Orb 
-fill(0);                  // Set to black
-rect(219, 257, 90, 120);  // Main body
-fill(102);                // Set medium gray
-rect(219, 274, 90, 6);    // Gray stripe
-
-// Head
-fill(0);                  // Set to black
-ellipse(276, 155, 45, 45);// Head
-fill(255);                // Set to white
-ellipse(288, 150, 14, 14);// Large eye
-fill(0);                  // Set to black
-ellipse(288, 150, 3, 3);  // Pupil
-fill(153);                // Set to gray
-ellipse(263, 148, 5, 5);  // Small eye 1
-ellipse(296, 130, 4, 4);  // Small eye 2
-ellipse(305, 162, 3, 3);  // Small eye 3
+void setup(){
+  size(1200,700);
+}
+void draw(){
+  noStroke();
+  background(255);
+  pick();
+  if(cat){
+   cat(catheadX,catheadY,catbodyX,catbodyY); 
+  }
+}
+void pick(){
+  if(!chose&&mousePressed&&mouseX>225&&mouseX<275&&mouseY>325&&mouseY<375){
+   cat=true; 
+   chose=true;
+  }if(!chose&&mousePressed&&mouseX>525&&mouseX<575&&mouseY>325&&mouseY<375){
+   bunny=true; 
+   chose=true;
+  }if(!chose&&mousePressed&&mouseX>825&&mouseX<875&&mouseY>325&&mouseY<375){
+   cat=true; 
+   chose=true;
+  }if(!chose){
+  fill(255,0,0);
+ rect(225,325,50,50);//cat
+ fill(0,255,0);
+ rect(525,325,50,50);//bunny
+ fill(0,0,255);
+ rect(825,325,50,50);//dog
+  }
+}
+void cat(int hx,int hy,int bx,int by){
+  fill(#EB9900);
+  ellipse(hx,hy,130,100);
+  ellipse(bx,by,220,180);
+  triangle(hx-55,hy-25,hx-55,hy-65,hx-35,hy-40);
+  triangle(hx+55,hy-25,hx+55,hy-65,hx+35,hy-40);
+}
