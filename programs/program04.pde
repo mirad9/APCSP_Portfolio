@@ -58,7 +58,7 @@ void draw(){
   if(win){
     fill(random(255));
     textSize(100);
-    text("Congrats You just wasted Your Time",100,400);
+    text("Congrats You just wasted",100,400);
      text("Your Time",400,600);
   }
   if(stop){
